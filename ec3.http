@@ -20,3 +20,15 @@ Content-Type: application/json
 ###
 GET {{api}}/categorias?size=2&page=0
 ###
+
+GET {{api}}/instrumentos
+###
+POST {{api}}/instrumentos
+Content-Type: application/json
+
+{"nombre": "Guitarra", "categoria": "http://localhost/categorias/1"}
+###
+GET {{api}}/instrumentos/1/categorias
+###
+GET {{api}}/instrumentos?sort=nombre,desc
+
