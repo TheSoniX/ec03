@@ -1,15 +1,28 @@
 package com.example.demo;
 
+import java.util.HashSet;
+import java.util.Set;
+
 import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
+import jakarta.persistence.OrderBy;
 import jakarta.persistence.Table;
 
 @Entity
-@Table(name = "instrumento")
+@Table(name = "instrumentos")
 public class Instrumento {
     
-    private int id;
+    @Id
+    @GeneratedValue(strategy=GenerationType.AUTO)
+    private Integer id;
     private String nombre;
     private int id_categoria;
+    @OneToMany(targetEntity = Categoria.class, mappedBy = "instrumento")
+    @OrderBy("nombre ASC")
+    private Set<Categoria> categorias = new HashSet<Categoria>();
     
     public int getId() {
         return id;

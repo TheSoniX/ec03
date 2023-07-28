@@ -1,0 +1,22 @@
+@api = https://thesonix-automatic-train-4q6g9w6p5qwhjvvw-8080.preview.app.github.dev
+
+####
+
+GET {{api}}
+###
+GET {{api}}/categorias
+###
+POST {{api}}/categorias
+Content-Type: application/json
+
+{"nombre": "Instrumentos de metal"}
+###
+GET {{api}}/categorias/1
+###
+PATCH {{api}}/categorias/3
+Content-Type: application/json
+
+{"nombre": "Instrumentos Electrónicos"}
+###
+GET {{api}}/categorias?size=2&page=0
+###
